@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voltage Orchard Services — Investor Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F8F0;
+  --paper-2:#EDF3E3;
+  --ink:#17301C;
+  --leaf:#2E5B34;
+  --kiwi:#7FB43C;
+  --gold:#E8A013;
+  --gold-deep:#C4880C;
+  --plate:#13291A;
+  --plate-2:#1B3823;
+  --line:#D6E0C8;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --display:'Archivo',sans-serif;
+  --body:'Archivo',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,248,240,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.02em;text-decoration:none}
+.logo .bolt{
+  width:26px;height:26px;border-radius:7px;background:var(--plate);
+  display:grid;place-items:center;color:var(--gold);flex:0 0 auto;
+}
+.nav-links{display:flex;gap:26px;font-size:14.5px;font-weight:500}
+.nav-links a{text-decoration:none;opacity:.75}
+.nav-links a:hover,.nav-links a:focus-visible{opacity:1;color:var(--leaf)}
+.nav-cta{
+  font-family:var(--mono);font-size:13px;font-weight:600;
+  background:var(--gold);color:var(--plate);text-decoration:none;
+  padding:9px 16px;border-radius:8px;
+}
+.nav-cta:hover{background:var(--gold-deep)}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.eyebrow{
+  font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--leaf);
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--gold)}
+h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(38px,5.4vw,60px);line-height:1.04;letter-spacing:-.03em;
+  margin-bottom:22px;
+}
+h1 .u{
+  background:linear-gradient(180deg,transparent 62%,rgba(232,160,19,.45) 62%);
+}
+.hero p.lede{font-size:19px;max-width:34em;color:#33502F;margin-bottom:30px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.btn{
+  font-family:var(--body);font-weight:600;font-size:15.5px;text-decoration:none;
+  padding:13px 22px;border-radius:10px;display:inline-block;
+}
+.btn-solid{background:var(--plate);color:#F2F7EA}
+.btn-solid:hover{background:var(--plate-2)}
+.btn-ghost{border:1.5px solid var(--leaf);color:var(--leaf)}
+.btn-ghost:hover{background:rgba(46,91,52,.08)}
+.hero-stats{display:flex;gap:0;border-top:1px solid var(--line);margin-bottom:56px}
+.hstat{padding:18px 26px 4px 0;margin-right:26px;border-right:1px solid var(--line)}
+.hstat:last-child{border-right:none;margin-right:0}
+.hstat .n{font-family:var(--mono);font-weight:600;font-size:24px;color:var(--leaf)}
+.hstat .l{font-size:13px;color:#4E6349;line-height:1.35;max-width:11em}
+.hero-art{align-self:end}
+.hero-art svg{width:100%;height:auto;display:block}
+
+/* ---------- section scaffolding ---------- */
+section{padding:84px 0}
+section.tint{background:var(--paper-2)}
+.sec-head{max-width:44em;margin-bottom:44px}
+h2{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(28px,3.6vw,40px);line-height:1.1;letter-spacing:-.025em;
+  margin:10px 0 14px;
+}
+.sec-head p{color:#33502F;font-size:17.5px}
+
+/* ---------- why cards ---------- */
+.card-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:860px){.card-row{grid-template-columns:1fr}}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:26px 24px;
+}
+.card .tag{
+  font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:12px;
+}
+.card h3{font-family:var(--display);font-weight:600;font-size:20px;margin-bottom:8px;letter-spacing:-.01em}
+.card p{font-size:15.5px;color:#3B5537}
+
+/* ---------- engines ---------- */
+.engines{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:860px){.engines{grid-template-columns:1fr}}
+.engine{
+  border-radius:16px;padding:28px 24px;color:#EAF3DF;background:var(--plate);
+  display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;
+}
+.engine::after{
+  content:attr(data-n);position:absolute;right:16px;top:10px;
+  font-family:var(--mono);font-size:13px;color:rgba(234,243,223,.4);
+}
+.engine h3{font-family:var(--display);font-weight:600;font-size:21px;color:#fff;letter-spacing:-.01em}
+.engine .k{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.engine p{font-size:15px;color:#C6D8B8}
+.engine ul{list-style:none;margin-top:6px}
+.engine li{
+  font-size:14.5px;color:#DDEACE;padding:7px 0;border-top:1px solid rgba(214,224,200,.14);
+}
+.engine li::before{content:"→ ";color:var(--gold)}
+
+/* ---------- switchboard ---------- */
+#model .sec-head{margin-bottom:26px}
+.controls{
+  display:flex;gap:26px;flex-wrap:wrap;align-items:center;
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:18px 22px;margin-bottom:26px;
+}
+.controls .ctl{display:flex;flex-direction:column;gap:6px}
+.controls label{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#4E6349}
+.controls input[type=range]{width:190px;accent-color:var(--leaf)}
+.controls .val{font-family:var(--mono);font-weight:600;font-size:15px;color:var(--leaf)}
+.controls .note{font-size:13.5px;color:#4E6349;max-width:30em;margin-left:auto}
+@media(max-width:760px){.controls .note{margin-left:0}}
+
+.eq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:920px){.eq-grid{grid-template-columns:1fr}}
+.eq{
+  background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.eq-top{display:flex;align-items:center;gap:14px;padding:18px 20px 14px}
+.eq-icon{
+  width:46px;height:46px;flex:0 0 auto;border-radius:12px;background:var(--paper-2);
+  display:grid;place-items:center;color:var(--leaf);
+}
+.eq-icon svg{width:28px;height:28px}
+.eq-name h3{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.01em;line-height:1.15}
+.eq-name .sub{font-size:13px;color:#4E6349}
+.eq-inputs{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 20px 16px;
+}
+.field label{
+  display:block;font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:#4E6349;margin-bottom:5px;
+}
+.field .in{
+  display:flex;align-items:center;background:var(--paper);
+  border:1.5px solid var(--line);border-radius:9px;overflow:hidden;
+}
+.field .in:focus-within{border-color:var(--leaf)}
+.field .pre{font-family:var(--mono);font-size:14px;color:#4E6349;padding:0 0 0 11px}
+.field input{
+  width:100%;border:none;background:transparent;outline:none;
+  font-family:var(--mono);font-size:16px;font-weight:500;color:var(--ink);
+  padding:10px 11px;
+}
+.eq-costs{padding:0 20px 14px}
+.eq-costs table{width:100%;border-collapse:collapse;font-size:13.5px}
+.eq-costs td{padding:5px 0;border-top:1px dashed var(--line);color:#3B5537}
+.eq-costs td:last-child{text-align:right;font-family:var(--mono);white-space:nowrap}
+.eq-costs tr.total td{font-weight:600;color:var(--ink);border-top:1.5px solid var(--leaf)}
+.readout{
+  margin-top:auto;background:var(--plate);color:#EAF3DF;
+  padding:16px 20px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
+}
+.readout .lab{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#9DB98B;margin-bottom:3px}
+.readout .price{font-family:var(--mono);font-weight:600;font-size:26px;color:var(--gold);line-height:1}
+.readout .per{font-size:12.5px;color:#9DB98B}
+.readout .side{text-align:right}
+.readout .side .n{font-family:var(--mono);font-size:15px;color:#EAF3DF}
+
+/* ---------- totals ---------- */
+.totals{
+  margin-top:26px;background:var(--plate);border-radius:18px;color:#EAF3DF;
+  padding:30px 30px 26px;
+}
+.totals h3{font-family:var(--display);font-weight:600;font-size:22px;color:#fff;margin-bottom:20px;letter-spacing:-.01em}
+.tot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:860px){.tot-grid{grid-template-columns:repeat(2,1fr)}}
+.tot .l{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#9DB98B;margin-bottom:6px}
+.tot .n{font-family:var(--mono);font-weight:600;font-size:clamp(20px,2.6vw,28px);color:var(--gold)}
+.tot .s{font-size:12.5px;color:#9DB98B;margin-top:3px}
+.totals .foot{font-size:13px;color:#9DB98B;margin-top:20px;border-top:1px solid rgba(214,224,200,.16);padding-top:14px}
+
+/* ---------- business blocks ---------- */
+.blk{margin-bottom:34px}
+.blk-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0 0 14px 2px}
+.blk-head h3{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.01em}
+.blk-head .pm{
+  font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--gold-deep);
+  border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 12px;
+}
+.blk-sub{
+  margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:12px 18px;display:flex;gap:26px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:13.5px;color:#3B5537;
+}
+.blk-sub b{color:var(--leaf);font-weight:600}
+
+/* ---------- fixed costs ---------- */
+.fixed{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:24px;margin-top:8px;
+}
+.fx-head{margin-bottom:16px}
+.fx-head h3{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.01em}
+.fx-head p{font-size:14.5px;color:#4E6349}
+.fx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:860px){.fx-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.fx-grid{grid-template-columns:1fr}}
+.fx-total{
+  margin-top:16px;border-top:1.5px solid var(--leaf);padding-top:12px;
+  font-weight:600;display:flex;justify-content:space-between;font-size:15.5px;
+}
+.fx-total span{font-family:var(--mono);color:var(--leaf)}
+
+/* ---------- P&L ---------- */
+.pl-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:34px}
+@media(max-width:860px){.pl-wrap{grid-template-columns:1fr}}
+.pl h3,.totals h3{font-family:var(--display);font-weight:700;font-size:22px;color:#fff;margin-bottom:18px;letter-spacing:-.01em}
+.pl table{width:100%;border-collapse:collapse;font-size:15px}
+.pl td{padding:8px 0;color:#C6D8B8}
+.pl td:last-child{text-align:right;font-family:var(--mono);white-space:nowrap;color:#EAF3DF}
+.pl tr.rule td{border-top:1px solid rgba(214,224,200,.22)}
+.pl tr.strong td{font-weight:600;color:#fff;font-size:16px}
+.pl tr.strong td:last-child{color:var(--gold)}
+.pl-side{display:flex;flex-direction:column;gap:20px}
+.badge{
+  font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:.04em;
+  border-radius:10px;padding:12px 16px;text-align:center;
+}
+.badge.ok{background:rgba(127,180,60,.18);color:#A9D46E;border:1px solid rgba(127,180,60,.45)}
+.badge.bad{background:rgba(232,160,19,.14);color:var(--gold);border:1px solid rgba(232,160,19,.4)}
+
+/* ---------- roadmap ---------- */
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:phase}
+@media(max-width:860px){.road{grid-template-columns:1fr}}
+.phase{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}
+.phase .ph{
+  font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px;display:block;
+}
+.phase h3{font-family:var(--display);font-weight:600;font-size:19px;margin-bottom:8px}
+.phase p{font-size:15px;color:#3B5537}
+.phase .cap{font-family:var(--mono);font-size:14px;color:var(--leaf);margin-top:12px;font-weight:600}
+
+/* ---------- footer / contact ---------- */
+.contact{
+  background:var(--plate);color:#EAF3DF;border-radius:20px;
+  padding:48px 40px;display:flex;justify-content:space-between;gap:30px;align-items:center;flex-wrap:wrap;
+}
+.contact h2{color:#fff}
+.contact p{color:#C6D8B8;max-width:30em}
+footer{padding:36px 0 46px;font-size:13.5px;color:#4E6349}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+:focus-visible{outline:2.5px solid var(--gold);outline-offset:2px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <span class="bolt">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+      </span>
+      Voltage Orchard Services
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#why">Why now</a>
+      <a href="#engines">The model</a>
+      <a href="#model">The numbers</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+    <a class="nav-cta" href="#model">Run the numbers</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Investor brief · Bay of Plenty, NZ</span>
+      <h1>The orchard runs on diesel.<br><span class="u">We're changing the fuel.</span></h1>
+      <p class="lede">Voltage owns, charges, maintains and delivers a fleet of electric orchard machinery — tractors, forklifts, UTVs, excavators — plus on-orchard solar and batteries, leased to kiwifruit growers as one monthly bill. No capex for the grower. No diesel. A 48-hour swap guarantee.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="#model">Open the pricing model</a>
+        <a class="btn btn-ghost" href="#engines">How it works</a>
+      </div>
+      <div class="hero-stats" role="list">
+        <div class="hstat" role="listitem"><div class="n">81%</div><div class="l">of NZ kiwifruit grows in the Bay of Plenty</div></div>
+        <div class="hstat" role="listitem"><div class="n">40 min</div><div class="l">service radius covers the entire market</div></div>
+        <div class="hstat" role="listitem"><div class="n">48 h</div><div class="l">replacement-unit guarantee, delivered</div></div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <!-- orchard scene: pergola canopy rows, sun, e-tractor, panel -->
+      <svg viewBox="0 0 560 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="452" cy="86" r="44" fill="#E8A013"/>
+        <g stroke="#E8A013" stroke-width="4" stroke-linecap="round">
+          <path d="M452 18v14M452 140v14M520 86h14M370 86h14M500 38l-10 10M404 134l-10 10M500 134l-10-10M404 38l-10 10"/>
+        </g>
+        <!-- canopy pergola -->
+        <path d="M20 250 Q150 195 280 250" stroke="#2E5B34" stroke-width="7" fill="none"/>
+        <path d="M280 250 Q410 195 540 250" stroke="#2E5B34" stroke-width="7" fill="none"/>
+        <g stroke="#2E5B34" stroke-width="6" stroke-linecap="round">
+          <path d="M24 250v112M278 250v112M536 250v112"/>
+        </g>
+        <g stroke="#7FB43C" stroke-width="4" stroke-linecap="round">
+          <path d="M80 228v26M140 216v30M200 228v26M340 228v26M400 216v30M460 228v26"/>
+        </g>
+        <!-- hanging fruit -->
+        <g fill="#C4880C">
+          <ellipse cx="80" cy="262" rx="7" ry="9"/><ellipse cx="140" cy="254" rx="7" ry="9"/>
+          <ellipse cx="200" cy="262" rx="7" ry="9"/><ellipse cx="340" cy="262" rx="7" ry="9"/>
+          <ellipse cx="400" cy="254" rx="7" ry="9"/><ellipse cx="460" cy="262" rx="7" ry="9"/>
+        </g>
+        <!-- ground -->
+        <path d="M0 362h560" stroke="#2E5B34" stroke-width="5"/>
+        <!-- e-tractor -->
+        <g>
+          <rect x="112" y="300" width="96" height="34" rx="9" fill="#13291A"/>
+          <rect x="188" y="278" width="34" height="30" rx="7" fill="#13291A"/>
+          <rect x="196" y="284" width="18" height="14" rx="3" fill="#EDF3E3"/>
+          <circle cx="136" cy="344" r="19" fill="#13291A" stroke="#7FB43C" stroke-width="5"/>
+          <circle cx="200" cy="348" r="14" fill="#13291A" stroke="#7FB43C" stroke-width="5"/>
+          <path d="M154 310 148 322h9l-6 12 13-15h-9l7-9z" fill="#E8A013"/>
+          <path d="M112 316h-20" stroke="#E8A013" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 7"/>
+        </g>
+        <!-- ground-mount solar + battery cabinet -->
+        <g>
+          <path d="M408 362v-42M462 362v-56" stroke="#2E5B34" stroke-width="6" stroke-linecap="round"/>
+          <g transform="rotate(-15 435 297)">
+            <rect x="381" y="281" width="108" height="32" rx="5" fill="#13291A" stroke="#7FB43C" stroke-width="3"/>
+            <path d="M408 281v32M435 281v32M462 281v32M381 297h108" stroke="#7FB43C" stroke-width="1.6"/>
+          </g>
+          <path d="M472 258l13-13" stroke="#E8A013" stroke-width="4" stroke-linecap="round"/>
+          <path d="M464 328q13 17 32 19" stroke="#E8A013" stroke-width="3.5" fill="none" stroke-dasharray="2 7" stroke-linecap="round"/>
+          <g>
+            <rect x="498" y="316" width="44" height="46" rx="9" fill="#13291A"/>
+            <circle cx="534" cy="324" r="2.6" fill="#7FB43C"/>
+            <rect x="506" y="330" width="28" height="6" rx="3" fill="#E8A013"/>
+            <rect x="506" y="340" width="28" height="6" rx="3" fill="#E8A013"/>
+            <rect x="506" y="350" width="20" height="6" rx="3" fill="#7FB43C"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ================= WHY ================= -->
+<section id="why" class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why now</span>
+      <h2>A concentrated market, ready to switch</h2>
+      <p>The entire opportunity sits within one hour of a single depot — a customer density no other horticultural region on earth offers an electrification business.</p>
+    </div>
+    <div class="card-row">
+      <div class="card">
+        <span class="tag">Demand</span>
+        <h3>Growers rent anyway</h3>
+        <p>Every orchard needs a forklift for six weeks of harvest and owns one for fifty-two. Seasonal machinery demand is already met by hire — just with diesel, and without a service guarantee.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Pressure</span>
+        <h3>Carbon reporting is coming to the orchard gate</h3>
+        <p>The industry's sustainability commitments flow down to growers as emissions accounting. A leased electric fleet is the easiest line item a grower can convert — with auditable numbers we hand them.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Moat</span>
+        <h3>We carry the risk they won't</h3>
+        <p>Growers don't trust the residual value or parts supply of imported electric machinery. We own both problems — direct-import sourcing, deep spares inventory, and a 48-hour swap that makes reliability our job, not theirs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ENGINES ================= -->
+<section id="engines">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The model</span>
+      <h2>Three engines, one client relationship</h2>
+      <p>Each layer de-risks the next: hire gets us in the gate, leases build the recurring base, and the energy package locks the relationship in for fifteen years.</p>
+    </div>
+    <div class="engines">
+      <div class="engine" data-n="ENGINE / 01">
+        <span class="k">Machines · Short-term hire</span>
+        <h3>Seasonal fleet</h3>
+        <p>Electric forklifts, excavators and bin-running gear, delivered for the harvest peak and development work.</p>
+        <ul>
+          <li>Proven battery duty cycles — zero technology risk</li>
+          <li>Counter-seasonal to the lease fleet</li>
+          <li>Beachhead product: profitable from year one</li>
+        </ul>
+      </div>
+      <div class="engine" data-n="ENGINE / 02">
+        <span class="k">Machines · Long-term lease</span>
+        <h3>Everyday fleet</h3>
+        <p>Utility tractors and UTVs on 12-month all-inclusive leases: maintenance, insurance, spares and swap included.</p>
+        <ul>
+          <li>Recurring, contracted revenue</li>
+          <li>48-hour replacement guarantee</li>
+          <li>Charges on-orchard — from engine 03</li>
+        </ul>
+      </div>
+      <div class="engine" data-n="ENGINE / 03">
+        <span class="k">Energy · 15-year lease</span>
+        <h3>Orchard energy package</h3>
+        <p>Right-sized solar, inverter and battery, installed by certified partners, owned and billed by us.</p>
+        <ul>
+          <li>Fleet charging makes the solar pay</li>
+          <li>Battery-backed frost and irrigation pumps</li>
+          <li>One invoice for machines and energy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SWITCHBOARD ================= -->
+<section id="model" class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The numbers · Interactive</span>
+      <h2>The switchboard</h2>
+      <p>Every figure below is live. Three businesses, three pricing logics: the <strong>long-term lease fleet</strong> prices at cost plus margin, the <strong>short-term hire fleet</strong> prices at market day rates against utilisation, and the <strong>energy book</strong> runs a thin margin so the grower's avoided power cost always beats the lease. Set your fixed cost base underneath, and the P&amp;L shows profit before and after tax — and where break-even sits.</p>
+    </div>
+
+    <div class="controls">
+      <div class="ctl">
+        <label for="finRate">Cost of capital</label>
+        <input type="range" id="finRate" min="5" max="14" step="0.25" value="9">
+        <div class="val" id="finRateVal">9.00% p.a.</div>
+      </div>
+      <div class="ctl">
+        <label for="lsMargin">Lease margin on cost</label>
+        <input type="range" id="lsMargin" min="10" max="40" step="1" value="30">
+        <div class="val" id="lsMarginVal">30%</div>
+      </div>
+      <div class="ctl">
+        <label for="enMargin">Energy margin on cost</label>
+        <input type="range" id="enMargin" min="5" max="30" step="1" value="15">
+        <div class="val" id="enMarginVal">15%</div>
+      </div>
+      <div class="ctl">
+        <label>Combined energy package</label>
+        <div class="val" id="ePkg">–</div>
+        <div style="font-size:12.5px;color:#4E6349">benchmark: ≤ ~$950/mo to beat the grower's avoided power cost</div>
+      </div>
+      <p class="note">Cost stack per unit: straight-line depreciation over asset life, maintenance &amp; consumables, insurance at 1.2% of value, finance on average capital outstanding, and an allocation for spares, swap logistics and delivery. Hire assets assume 260 hireable days per year.</p>
+    </div>
+
+    <div id="blocks"><!-- business blocks injected --></div>
+
+    <div class="fixed">
+      <div class="fx-head">
+        <h3>Fixed cost base</h3>
+        <p>The overhead the gross margin has to clear — this is what creates the scale threshold.</p>
+      </div>
+      <div class="fx-grid" id="fxGrid"><!-- fixed cost inputs injected --></div>
+      <div class="fx-total">Total fixed costs <span id="fxTotal">–</span> / yr</div>
+    </div>
+
+    <div class="totals" id="totals">
+      <div class="pl-wrap">
+        <div class="pl">
+          <h3>Profit &amp; loss — at full deployment</h3>
+          <table aria-label="Annual profit and loss">
+            <tr><td>Long-term lease revenue</td><td id="plLease">–</td></tr>
+            <tr><td>Short-term hire revenue</td><td id="plHire">–</td></tr>
+            <tr><td>Energy revenue</td><td id="plEnergy">–</td></tr>
+            <tr class="rule"><td>Total revenue</td><td id="plRev">–</td></tr>
+            <tr><td>Direct fleet &amp; energy costs</td><td id="plCogs">–</td></tr>
+            <tr class="rule"><td>Gross margin</td><td id="plGm">–</td></tr>
+            <tr><td>Fixed costs</td><td id="plFx">–</td></tr>
+            <tr class="rule strong"><td>Profit before tax</td><td id="plEbit">–</td></tr>
+            <tr><td>Company tax (28%)</td><td id="plTax">–</td></tr>
+            <tr class="rule strong"><td>Profit after tax</td><td id="plNpat">–</td></tr>
+          </table>
+        </div>
+        <div class="pl-side">
+          <div class="badge" id="beBadge">–</div>
+          <div class="tot"><div class="l">Deployed capital</div><div class="n" id="tCapex">–</div><div class="s">fleet + energy assets</div></div>
+          <div class="tot"><div class="l">Revenue / capital</div><div class="n" id="tYield">–</div><div class="s">rental benchmark: 25–30%</div></div>
+          <div class="tot"><div class="l">After-tax return on capital</div><div class="n" id="tRoc">–</div><div class="s">profit after tax ÷ deployed capital</div></div>
+        </div>
+      </div>
+      <p class="foot">Illustrative model for discussion, not a forecast. Steady-state year at full deployment: no ramp-up, seasonality or bad debt; hire utilisation as set per asset; tax at the NZ company rate of 28% on positive profit only, ignoring depreciation timing differences and loss carry-forwards. Figures in NZD, GST exclusive.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROADMAP ================= -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Roadmap</span>
+      <h2>Prove it small, scale it funded</h2>
+      <p>The business has a scale threshold — overhead amortises across the fleet. We reach it in tranches, each one raised against signed contracts, not projections.</p>
+    </div>
+    <div class="road">
+      <div class="phase">
+        <span class="ph">Phase 1 · This harvest</span>
+        <h3>Paid pilot</h3>
+        <p>Four electric forklifts and two tractors with founding growers. A full Bay of Plenty season of reliability, duty-cycle and cost data — and signed letters of intent.</p>
+        <div class="cap">~$350k capital</div>
+      </div>
+      <div class="phase">
+        <span class="ph">Phase 2 · Year 1–2</span>
+        <h3>Fleet + depot</h3>
+        <p>Depot with solar and V2G-capable charging, delivery truck, first technician. Lease fleet deployed against LOIs; energy packages offered to every machine client.</p>
+        <div class="cap">~$4–5M capital</div>
+      </div>
+      <div class="phase">
+        <span class="ph">Phase 3 · Year 3+</span>
+        <h3>The electrification layer</h3>
+        <p>Idle fleet becomes grid storage. Energy book compounds. Expansion to adjacent horticulture — avocados, apples — on the same playbook.</p>
+        <div class="cap">$8M+ deployed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section>
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Let's walk an orchard.</h2>
+        <p>The best way to understand this business is to stand under a canopy in Te Puke at harvest. Second best: an hour with the model above and a coffee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Voltage Orchard Services · Bay of Plenty, New Zealand</span>
+    <span>Illustrative investor material — not an offer of financial products.</span>
+  </div>
+</footer>
+
+<script>
+/* ============ pricing engine ============ */
+const RATE_INS  = 0.012;  // insurance, % of unit value / yr
+const FIN_UTIL  = 0.55;   // average capital outstanding over the term
+const HIRE_DAYS = 260;    // hireable days per year
+const TAX_RATE  = 0.28;   // NZ company tax
+
+const BLOCKS = [
+  { id:'lease',  title:'Long-term lease fleet',  pm:'Cost + margin · 12-month contracts' },
+  { id:'hire',   title:'Short-term hire fleet',  pm:'Day rate × utilisation · seasonal' },
+  { id:'energy', title:'Energy book',            pm:'Cost + thin margin · 15-year contracts' },
+];
+
+const EQUIPMENT = [
+  { id:'tractor',  cat:'lease',  name:'Electric utility tractor', sub:'Low-profile canopy spec · 12-month lease',
+    price:45000, units:12, life:7,  maint:0.025, overhead:1300, icon:'tractor' },
+  { id:'quad',     cat:'lease',  name:'Electric UTV / quad', sub:'Daily orchard runabout · 12-month lease',
+    price:22000, units:12, life:5,  maint:0.030, overhead:700,  icon:'quad' },
+  { id:'forklift', cat:'hire',   name:'Electric rough-terrain forklift', sub:'Bin loading · harvest peak hire',
+    price:55000, units:10, life:8,  maint:0.020, overhead:1100, icon:'forklift', rate:350, util:35 },
+  { id:'digger',   cat:'hire',   name:'Electric mini excavator', sub:'Development & drainage hire',
+    price:85000, units:4,  life:8,  maint:0.030, overhead:1500, icon:'digger',   rate:420, util:40 },
+  { id:'solar',    cat:'energy', name:'Solar array · 30 kW', sub:'Installed, direct-import hardware · 15-yr lease',
+    price:30000, units:15, life:15, maint:0.010, overhead:600, icon:'solar' },
+  { id:'inverter', cat:'energy', name:'Hybrid inverter', sub:'AS/NZS 4777.2 certified · 15-yr lease',
+    price:6000,  units:15, life:10, maint:0.005, overhead:150, icon:'inverter' },
+  { id:'battery',  cat:'energy', name:'Battery · 25 kWh', sub:'Name-brand, insurer-approved · 15-yr lease',
+    price:18000, units:15, life:10, maint:0.010, overhead:300, icon:'battery' },
+];
+
+const FIXED_COSTS = [
+  { id:'depot',   label:'Depot lease & rates',        value:75000 },
+  { id:'staff',   label:'Staff (technician + casual)', value:95000 },
+  { id:'founder', label:'Founder / management',        value:80000 },
+  { id:'vehicle', label:'Delivery truck & running',    value:25000 },
+  { id:'util',    label:'Utilities & depot power',     value:12000 },
+  { id:'admin',   label:'Insurance, admin & software', value:20000 },
+];
+
+const ICONS = {
+  tractor:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="3.4"/><circle cx="17.5" cy="17.5" r="2.4"/><path d="M10.4 17h4.7M4 13.5V9h6l1.5 4.5M13 9h3v4"/><path d="M12 9V6h-2"/></svg>',
+  forklift: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="18" r="2.2"/><circle cx="13" cy="18" r="2.2"/><path d="M4.8 15.8V10h6l1.8 5.8M16 5v11M16 16h5M16 12h4"/></svg>',
+  quad:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="2.6"/><circle cx="18" cy="17" r="2.6"/><path d="M8.6 17h6.8M4 13l3-1h5l2-3h3l2 4M12 12v5"/></svg>',
+  digger:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="8" height="4" rx="2"/><path d="M8 14v-3h3l4-5 3 2-3 4v3"/><path d="M15 15l3 3h2"/></svg>',
+  solar:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14l2 9H3l2-9zM12 5v9M7.5 5l-1 9M16.5 5l1 9M12 14v5M8 19h8"/></svg>',
+  inverter: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h4M8 12h2"/><path d="M15.5 9.5 14 12h3l-1.5 2.5"/></svg>',
+  battery:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="16" height="9" rx="2"/><path d="M21 11v3M6.5 10.5v4M10 10.5v4M13.5 10.5v4"/></svg>',
+};
+
+const fmt$ = n => (n < 0 ? '−$' : '$') + Math.round(Math.abs(n)).toLocaleString('en-NZ');
+const fmtK = n => {
+  const s = n < 0 ? '−' : '';
+  const a = Math.abs(n);
+  return a >= 1e6 ? s + '$' + (a/1e6).toFixed(2) + 'M' : s + '$' + Math.round(a/1000) + 'k';
+};
+
+function costStack(item, finRate){
+  const dep = item.price / item.life;
+  const mnt = item.price * item.maint;
+  const ins = item.price * RATE_INS;
+  const fin = item.price * finRate * FIN_UTIL;
+  const ovh = item.overhead;
+  return { dep, mnt, ins, fin, ovh, total: dep + mnt + ins + fin + ovh };
+}
+
+function inputField(id, label, value, pre, step){
+  return `<div class="field">
+    <label for="${id}">${label}</label>
+    <div class="in">${pre ? '<span class="pre">' + pre + '</span>' : ''}
+      <input type="number" id="${id}" value="${value}" min="0" step="${step}" inputmode="numeric">
+    </div>
+  </div>`;
+}
+
+function cardHTML(e){
+  const inputs = e.cat === 'hire'
+    ? inputField('price-'+e.id,'Landed price / unit',e.price,'$',500)
+      + inputField('units-'+e.id,'Units in fleet',e.units,'',1)
+      + inputField('rate-'+e.id,'Day rate',e.rate,'$',10)
+      + inputField('util-'+e.id,'Utilisation %',e.util,'',1)
+    : inputField('price-'+e.id,'Landed price / unit',e.price,'$',500)
+      + inputField('units-'+e.id,'Units in fleet',e.units,'',1);
+
+  const readout = e.cat === 'hire'
+    ? `<div class="readout">
+        <div>
+          <div class="lab">Revenue / unit at set utilisation</div>
+          <div class="price" id="rv-${e.id}"></div>
+          <div class="per">per unit / year</div>
+        </div>
+        <div class="side">
+          <div class="lab">Margin / unit / yr</div>
+          <div class="n" id="mg-${e.id}"></div>
+        </div>
+      </div>`
+    : `<div class="readout">
+        <div>
+          <div class="lab">Customer price · +<span id="ml-${e.id}">–</span>% on cost</div>
+          <div class="price" id="cm-${e.id}"></div>
+          <div class="per">per unit / month</div>
+        </div>
+        <div class="side">
+          <div class="lab">Margin / unit / yr</div>
+          <div class="n" id="mg-${e.id}"></div>
+        </div>
+      </div>`;
+
+  return `<div class="eq" id="card-${e.id}">
+    <div class="eq-top">
+      <div class="eq-icon">${ICONS[e.icon]}</div>
+      <div class="eq-name"><h3>${e.name}</h3><div class="sub">${e.sub}</div></div>
+    </div>
+    <div class="eq-inputs">${inputs}</div>
+    <div class="eq-costs">
+      <table aria-label="Annual cost per unit">
+        <tr><td>Depreciation (${e.life}-yr life)</td><td id="dep-${e.id}"></td></tr>
+        <tr><td>Maintenance &amp; consumables</td><td id="mnt-${e.id}"></td></tr>
+        <tr><td>Insurance</td><td id="ins-${e.id}"></td></tr>
+        <tr><td>Finance on capital</td><td id="fin-${e.id}"></td></tr>
+        <tr><td>Spares, swap &amp; delivery</td><td id="ovh-${e.id}"></td></tr>
+        <tr class="total"><td>Annual cost / unit</td><td id="tot-${e.id}"></td></tr>
+      </table>
+    </div>
+    ${readout}
+  </div>`;
+}
+
+function build(){
+  document.getElementById('blocks').innerHTML = BLOCKS.map(b => `
+    <div class="blk">
+      <div class="blk-head"><h3>${b.title}</h3><span class="pm">${b.pm}</span></div>
+      <div class="eq-grid">${EQUIPMENT.filter(e => e.cat === b.id).map(cardHTML).join('')}</div>
+      <div class="blk-sub" id="sub-${b.id}"></div>
+    </div>`).join('');
+
+  document.getElementById('fxGrid').innerHTML =
+    FIXED_COSTS.map(f => inputField('fx-'+f.id, f.label + ' / yr', f.value, '$', 1000)).join('');
+}
+
+function recalc(){
+  const finRate  = parseFloat(document.getElementById('finRate').value) / 100;
+  const lsMargin = parseFloat(document.getElementById('lsMargin').value) / 100;
+  const enMargin = parseFloat(document.getElementById('enMargin').value) / 100;
+  document.getElementById('finRateVal').textContent  = (finRate*100).toFixed(2) + '% p.a.';
+  document.getElementById('lsMarginVal').textContent = Math.round(lsMargin*100) + '%';
+  document.getElementById('enMarginVal').textContent = Math.round(enMargin*100) + '%';
+
+  const agg = { lease:{capex:0,rev:0,cogs:0,units:0},
+                hire:{capex:0,rev:0,cogs:0,units:0},
+                energy:{capex:0,rev:0,cogs:0,units:0} };
+  let pkg = 0;
+
+  EQUIPMENT.forEach(e => {
+    e.price = Math.max(0, parseFloat(document.getElementById('price-'+e.id).value) || 0);
+    e.units = Math.max(0, parseInt(document.getElementById('units-'+e.id).value) || 0);
+    const c = costStack(e, finRate);
+
+    let revUnit, marginUnit;
+    if (e.cat === 'hire'){
+      e.rate = Math.max(0, parseFloat(document.getElementById('rate-'+e.id).value) || 0);
+      e.util = Math.min(100, Math.max(0, parseFloat(document.getElementById('util-'+e.id).value) || 0));
+      revUnit = e.rate * HIRE_DAYS * e.util / 100;
+      marginUnit = revUnit - c.total;
+      document.getElementById('rv-'+e.id).textContent = fmt$(revUnit);
+    } else {
+      const m = e.cat === 'energy' ? enMargin : lsMargin;
+      revUnit = c.total * (1 + m);
+      marginUnit = c.total * m;
+      document.getElementById('ml-'+e.id).textContent = Math.round(m*100);
+      document.getElementById('cm-'+e.id).textContent = fmt$(revUnit/12);
+      if (e.cat === 'energy') pkg += revUnit/12;
+    }
+
+    ['dep','mnt','ins','fin','ovh'].forEach(k =>
+      document.getElementById(k+'-'+e.id).textContent = fmt$(c[k]));
+    document.getElementById('tot-'+e.id).textContent = fmt$(c.total);
+    document.getElementById('mg-'+e.id).textContent  = fmt$(marginUnit);
+
+    const a = agg[e.cat];
+    a.capex += e.price * e.units;
+    a.rev   += revUnit * e.units;
+    a.cogs  += c.total * e.units;
+    a.units += e.units;
+  });
+
+  BLOCKS.forEach(b => {
+    const a = agg[b.id];
+    document.getElementById('sub-'+b.id).innerHTML =
+      `<span><b>${a.units}</b> units</span>` +
+      `<span>capital <b>${fmtK(a.capex)}</b></span>` +
+      `<span>revenue <b>${fmtK(a.rev)}</b> /yr</span>` +
+      `<span>gross margin <b>${fmtK(a.rev - a.cogs)}</b> /yr</span>`;
+  });
+
+  let fixed = 0;
+  FIXED_COSTS.forEach(f => {
+    f.value = Math.max(0, parseFloat(document.getElementById('fx-'+f.id).value) || 0);
+    fixed += f.value;
+  });
+  document.getElementById('fxTotal').textContent = fmt$(fixed);
+
+  const capex = agg.lease.capex + agg.hire.capex + agg.energy.capex;
+  const rev   = agg.lease.rev   + agg.hire.rev   + agg.energy.rev;
+  const cogs  = agg.lease.cogs  + agg.hire.cogs  + agg.energy.cogs;
+  const gm    = rev - cogs;
+  const ebit  = gm - fixed;
+  const tax   = Math.max(0, ebit) * TAX_RATE;
+  const npat  = ebit - tax;
+
+  document.getElementById('ePkg').textContent   = fmt$(pkg) + ' /mo';
+  document.getElementById('plLease').textContent  = fmt$(agg.lease.rev);
+  document.getElementById('plHire').textContent   = fmt$(agg.hire.rev);
+  document.getElementById('plEnergy').textContent = fmt$(agg.energy.rev);
+  document.getElementById('plRev').textContent    = fmt$(rev);
+  document.getElementById('plCogs').textContent   = '(' + fmt$(cogs) + ')';
+  document.getElementById('plGm').textContent     = fmt$(gm);
+  document.getElementById('plFx').textContent     = '(' + fmt$(fixed) + ')';
+  document.getElementById('plEbit').textContent   = fmt$(ebit);
+  document.getElementById('plTax').textContent    = tax > 0 ? '(' + fmt$(tax) + ')' : '$0';
+  document.getElementById('plNpat').textContent   = fmt$(npat);
+
+  document.getElementById('tCapex').textContent = fmtK(capex);
+  document.getElementById('tYield').textContent = capex > 0 ? (rev/capex*100).toFixed(1) + '%' : '–';
+  document.getElementById('tRoc').textContent   = capex > 0 ? (npat/capex*100).toFixed(1) + '%' : '–';
+
+  const badge = document.getElementById('beBadge');
+  if (ebit >= 0){
+    badge.className = 'badge ok';
+    badge.textContent = '● Above break-even — +' + fmtK(ebit) + ' before tax';
+  } else {
+    badge.className = 'badge bad';
+    badge.textContent = '○ Below break-even — needs ' + fmtK(-ebit) + ' more gross margin';
+  }
+}
+
+build();
+document.getElementById('blocks').addEventListener('input', recalc);
+document.getElementById('fxGrid').addEventListener('input', recalc);
+['finRate','lsMargin','enMargin'].forEach(id =>
+  document.getElementById(id).addEventListener('input', recalc));
+recalc();
+</script>
+</body>
+</html>
